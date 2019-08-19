@@ -1,0 +1,27 @@
+
+service: my-serverless
+app: myapp
+org: hubvue
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  regoin: eu-west-1
+
+plugins:
+  - serverless-offline
+
+functions:
+  landingPage:
+    handler: handler.landingPage
+    events:
+      - http:
+          method: get
+          path: landing-page
+  test:
+    handler: handler.test
+    events:
+      - http:
+          method: get
+          path: test
